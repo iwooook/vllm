@@ -669,7 +669,7 @@ async def invocations(raw_request: Request):
     return await handler(request, raw_request)
 
 
-if envs.VLLM_TORCH_PROFILER_DIR:
+if envs.VLLM_TORCH_PROFILER_DIR or envs.VLLM_RPD_PROFILER_DIR:
     logger.warning(
         "Torch Profiler is enabled in the API server. This should ONLY be "
         "used for local development!")
